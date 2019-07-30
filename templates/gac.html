@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}" />
+  </head>
+  <body>
+  <table>
+        <tr>
+          <td>
+              <div class="button1">
+                  <form id = "form" method = 'get' action = "login">
+                    <input type = "submit" name = "submit" value = "LOGOUT"/>
+                 </form>
+              </div>
+
+          </td>
+      </tr>
+  </table>
+  <h1>STUDENT GOVERNMENT ASSOCIATION INVENTORY</h1>
+  <img src="https://pbs.twimg.com/profile_images/519667011232595970/lB4cuK0K_400x400.jpeg" alt="SGA Logo">
+  <p></p>
+  <table class = "button2">
+        <tr>
+          <td>
+              <form id = "form" method = 'get' action = "home">
+                <input type = "submit" name = "submit" value = "HOME"/>
+              </form>
+          </td>
+            <td>
+              <form id = "form" method = 'get' action = "inventory">
+                  {% if session['admin'] == "yes" %}
+              <input type = "submit" name = "submit" value = "YOUR INVENTORY"/>
+                  {% endif %}
+                  {% if session['admin'] == "no" %}
+              <input type = "submit" name = "submit" value = "OUR INVENTORY"/>
+                  {% endif %}
+              </form>
+          </td>
+          <td>
+              <form id = "form" method = 'get' action = "requests">
+              <input type = "submit" name = "submit" value = "ITEM REQUESTS"/>
+              </form>
+          </td>
+      </tr>
+  </table>
+
+    <h2>GROUP ACTIVITIES CENTER</h2>
+      <table class = "data">
+          <th>Name</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Unit</th>
+          <th>Item #</th>
+          <th>Storage Area</th>
+    {% for item in items %}
+
+    <tr>
+       <td>{{item[0]}}</td>
+       <td>{{item[1]}}</td>
+       <td>{{item[2]}}</td>
+       <td>{{item[3]}}</td>
+       <td>{{item[4]}}</td>
+       <td>{{item[5]}}</td>
+        {% if session["admin"] == "yes" %}
+       <td>
+        <form id = "form" method = 'post' action = "delete_item">
+            <input type = "hidden" name = "item_number" value = "{{item[4]}}" />
+            <input type = "submit" name = "submit" value = "DELETE"/>
+        </form>
+       <form id = "form" method = 'post' action = "edit_item_page">
+            <input type = "hidden" name = "name" value = {{item[0]}} />
+            <input type = "hidden" name = "desc" value = {{item[1]}} />
+            <input type = "hidden" name = "quantity" value = {{item[2]}} />
+            <input type = "hidden" name = "unit" value = {{item[3]}} />
+            <input type = "hidden" name = "item_number" value = {{item[4]}} />
+            <input type = "hidden" name = "storage_area" value = {{item[5]}} />
+            <input type = "submit" name = "submit" value = "EDIT"/>
+        </form>
+       </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+      </table>
+  </body>
+</html>

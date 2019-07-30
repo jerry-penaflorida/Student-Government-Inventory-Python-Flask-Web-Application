@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}" />
+  </head>
+<body>
+<table>
+        <tr>
+          <td>
+              <div class="button1">
+                  <form id = "form" method = 'get' action = "login">
+                    <input type = "submit" name = "submit" value = "LOGOUT"/>
+                 </form>
+              </div>
+
+          </td>
+      </tr>
+  </table>
+  <h1>STUDENT GOVERNMENT ASSOCIATION INVENTORY</h1>
+<img src="https://pbs.twimg.com/profile_images/519667011232595970/lB4cuK0K_400x400.jpeg" alt="SGA Logo">
+<p></p>
+  <table class = "button2">
+        <tr>
+          <td>
+              <form id = "form" method = 'get' action = "home">
+                <input type = "submit" name = "submit" value = "HOME"/>
+              </form>
+          </td>
+            <td>
+              <form id = "form" method = 'get' action = "inventory">
+              {% if session['admin'] == "yes" %}
+              <input type = "submit" name = "submit" value = "YOUR INVENTORY"/>
+                  {% endif %}
+                  {% if session['admin'] == "no" %}
+              <input type = "submit" name = "submit" value = "OUR INVENTORY"/>
+                  {% endif %}
+              </form>
+          </td>
+          <td>
+              <form id = "form" method = 'get' action = "requests">
+              <input type = "submit" name = "submit" value = "ITEM REQUESTS"/>
+              </form>
+          </td>
+      </tr>
+  </table>
+  <h2>REQUEST ITEM</h2>
+<div class = "input">
+  <form method = "post">
+    <p>Item Name:   <input type="text" name="name" placeholder = "ex: Paper"/> </p>
+    <p>Description: <input type="text" name="description" placeholder = "ex: purple"/> </p>
+    <p>Quantity:  <input type="text" name="quantity" placeholder = "ex: 50"/> </p>
+    <p>Unit: <input type="text" name="unit" placeholder = "ex: sheets"/> </p>
+    <input type="submit" name="submit" value="REQUEST ITEM"/>
+  </form>
+</div>
+
+</body>
+</html>

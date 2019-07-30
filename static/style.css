@@ -1,0 +1,106 @@
+h1 {
+  color: white;
+  font-family: "Arial Black", Helvetica, serif;
+  background-color: #4B0082;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  text-align: center;
+  height: 15%;
+  border-style: inset;
+  font-size: 200%;
+}
+h2 {
+  border-bottom-style: solid;
+  border-top-style: solid;
+  background-color: #9ACD32;
+  color: white;
+  font-family: "Arial Black", Helvetica, serif;
+  border-color: black;
+  text-align: center;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    width: 100px;
+}
+#login {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #E6E6FA;
+    border-style: solid;
+    border-radius: 25px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.input {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #E6E6FA;
+    border-style: solid;
+    border-radius: 25px;
+    width: 350px;
+}
+.input p {
+    font-family: Tahoma, Geneva, sans-serif;
+}
+#login p {
+    font-family: "Arial Black", Helvetica, serif;
+}
+
+.data td {
+    font-family: Tahoma, Geneva, sans-serif;
+    border-style: outset;
+}
+.data th {
+    font-family: Tahoma, Geneva, sans-serif;
+    background-color: #E6E6FA;
+    border-style: solid;
+    border-style: outset;
+}
+
+input[type=text] {
+    margin-right:auto;
+}
+input[type=submit] {
+    font-family: "Arial Black", Helvetica, serif;
+    border-color:grey;
+    background-color:#663399;
+    color:white;
+}
+input[type=submit]:hover {
+  background-color: white;
+  color: #663399;
+}
+
+.button1 input[type=submit] {
+    font-family: "Arial Black", Helvetica, serif;
+    border-color:grey;
+    background-color:grey;
+    color:white;
+}
+.button1 input[type=submit]:hover {
+  background-color: white;
+  color: black;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#home p {
+    font-family: Tahoma, Geneva, sans-serif;
+    border: 1px solid black;
+    padding: 10px;
+    width: 50%;
+    text-align: justify;
+}
+#home {
+    margin-right: auto;
+    margin-left:auto;
+}

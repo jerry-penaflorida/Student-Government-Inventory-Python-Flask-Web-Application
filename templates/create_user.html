@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}" />
+  </head>
+<body>
+  <table>
+        <tr>
+          <td>
+              <div class="button1">
+                  <form id = "form" method = 'get' action = "login">
+                    <input type = "submit" name = "submit" value = "LOGOUT"/>
+                 </form>
+              </div>
+
+          </td>
+      </tr>
+  </table>
+  <h1>STUDENT GOVERNMENT ASSOCIATION INVENTORY</h1>
+  <h2>CREATE NEW USER</h2>
+  <div class = "input">
+      <form method = "post">
+        <p>Email:   <input type="text" name="email" /> </p>
+        <p>Password: <input type="password" name="password" /> </p>
+        <p>First Name: <input type="text" name="fname" /> </p>
+        <p>Last Name: <input type="text" name="lname" /> </p>
+        <input type="submit" name="submit" value="CREATE USER"/>
+      </form>
+      <p></p>
+      <form id = "form" method = 'get' action = "login">
+          <input type = "submit" name = "submit" value = "CANCEL"/>
+      </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}" />
+  </head>
+  <body>
+  <table>
+        <tr>
+          <td>
+              <div class="button1">
+                  <form id = "form" method = 'get' action = "login">
+                    <input type = "submit" name = "submit" value = "LOGOUT"/>
+                 </form>
+              </div>
+
+          </td>
+      </tr>
+  </table>
+  <h1>STUDENT GOVERNMENT ASSOCIATION INVENTORY</h1>
+  <img src="https://pbs.twimg.com/profile_images/519667011232595970/lB4cuK0K_400x400.jpeg" alt="SGA Logo">
+  <p></p>
+  <table class = "button2">
+        <tr>
+          <td>
+              <form id = "form" method = 'get' action = "home">
+                <input type = "submit" name = "submit" value = "HOME"/>
+              </form>
+          </td>
+            <td>
+              <form id = "form" method = 'get' action = "inventory">
+              {% if session['admin'] == "yes" %}
+              <input type = "submit" name = "submit" value = "YOUR INVENTORY"/>
+                  {% endif %}
+                  {% if session['admin'] == "no" %}
+              <input type = "submit" name = "submit" value = "OUR INVENTORY"/>
+                  {% endif %}
+              </form>
+          </td>
+          <td>
+              <form id = "form" method = 'get' action = "requests">
+              <input type = "submit" name = "submit" value = "ITEM REQUESTS"/>
+              </form>
+          </td>
+      </tr>
+  </table>
+
+    <h2>REQUESTS</h2>
+
+      <table class = "data">
+          <th>Name</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Unit</th>
+          <th>Email</th>
+          <th>Status</th>
+          <th>Request #</th>
+    {% for request in requests %}
+
+    <tr>
+       <td>{{request[0]}}</td>
+       <td>{{request[1]}}</td>
+       <td>{{request[2]}}</td>
+       <td>{{request[3]}}</td>
+       <td><a href = "{{request[4]}}">{{request[4]}}</a></td>
+       <td>{{request[5]}}</td>
+        <td>{{request[6]}}</td>
+
+        {% if session["admin"] == "yes" %}
+       <td>
+        <form id = "form" method = 'post' action = "delete_request">
+        <input type = "hidden" name = "request_number" value = {{request[6]}}>
+        <input type = "submit" name = "submit" value = "DELETE"/>
+        </form>
+       </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+      </table>
+  </body>
+</html>

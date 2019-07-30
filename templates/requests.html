@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+      <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}" />
+  </head>
+<table>
+        <tr>
+          <td>
+              <div class="button1">
+                  <form id = "form" method = 'get' action = "login">
+                    <input type = "submit" name = "submit" value = "LOGOUT"/>
+                 </form>
+              </div>
+
+          </td>
+      </tr>
+  </table>
+<h1>STUDENT GOVERNMENT ASSOCIATION INVENTORY</h1>
+<img src="https://pbs.twimg.com/profile_images/519667011232595970/lB4cuK0K_400x400.jpeg" alt="SGA Logo">
+<p></p>
+    <table class = "button2">
+        <tr>
+          <td>
+              <form id = "form" method = 'get' action = "home">
+                <input type = "submit" name = "submit" value = "HOME"/>
+              </form>
+          </td>
+            <td>
+              <form id = "form" method = 'get' action = "inventory">
+              {% if session['admin'] == "yes" %}
+              <input type = "submit" name = "submit" value = "YOUR INVENTORY"/>
+                  {% endif %}
+                  {% if session['admin'] == "no" %}
+              <input type = "submit" name = "submit" value = "OUR INVENTORY"/>
+                  {% endif %}
+              </form>
+          </td>
+          <td>
+              <form id = "form" method = 'get' action = "requests">
+              <input type = "submit" name = "submit" value = "ITEM REQUESTS"/>
+              </form>
+          </td>
+      </tr>
+  </table>
+  <h2>ITEM REQUESTS</h2>
+
+    <table>
+        <tr>
+            {% if session["admin"] == "no" %}
+            <td>
+                <form id = "form" method = 'get' action = "request_item">
+                <input type = "submit" name = "submit" value = "REQUEST ITEM"/>
+                </form>
+            </td>
+            <td>
+                <form id = "form" method = 'get' action = "view_user_requests">
+                <input type = "submit" name = "submit" value = "VIEW YOUR REQUESTS"/>
+                </form>
+            </td>
+            {% endif %}
+
+            {% if session["admin"] == "yes" %}
+            <td>
+                <form id = "form" method = 'get' action = "view_requests">
+                <input type = "submit" name = "submit" value = "VIEW ALL REQUESTS"/>
+                </form>
+            </td>
+            {% endif %}
+        </tr>
+    </table>
+</body>
+</html>

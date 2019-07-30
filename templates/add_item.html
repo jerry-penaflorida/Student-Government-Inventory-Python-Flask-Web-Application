@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}" />
+  </head>
+<body>
+  <table>
+        <tr>
+          <td>
+              <div class="button1">
+                  <form id = "form" method = 'get' action = "login">
+                    <input type = "submit" name = "submit" value = "LOGOUT"/>
+                 </form>
+              </div>
+
+          </td>
+      </tr>
+  </table>
+  <h1>STUDENT GOVERNMENT ASSOCIATION INVENTORY</h1>
+  <table>
+        <tr>
+          <td>
+              <form id = "form" method = 'get' action = "inventory">
+                <input type = "submit" name = "submit" value = "BACK"/>
+              </form>
+          </td>
+      </tr>
+  </table>
+
+  <h2>ADD ITEM</h2>
+  <div class = "input">
+      <form id = "form" method = "post">
+    <p>Item Name:   <input type="text" name="name" placeholder = "ex: Paper"/> </p>
+    <p>Description: <input type="text" name="description" placeholder = "ex: purple"/> </p>
+    <p>Quantity:  <input type="text" name="quantity" placeholder = "ex: 50"/> </p>
+    <p>Unit: <input type="text" name="unit" placeholder = "ex: sheets"/> </p>
+    <p>Storage #:
+      <select id="storage_area" name="storage_area">
+      <option value="Group Activities Center">Group Activities Center</option>
+      <option value="Info Desk">Info Desk</option>
+    </select>
+    </p>
+
+    <input type="submit" name="submit" value="ADD ITEM"/>
+  </form>
+  </div>
+
+</body>
+</html>

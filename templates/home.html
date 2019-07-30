@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <link rel = "stylesheet" href = "{{ url_for('static', filename = 'style.css') }}" />
+  </head>
+<body>
+<table>
+        <tr>
+          <td>
+              <div class="button1">
+                  <form id = "form" method = 'get' action = "login">
+                    <input type = "submit" name = "submit" value = "LOGOUT"/>
+                 </form>
+              </div>
+
+          </td>
+      </tr>
+    </table>
+  <h1>STUDENT GOVERNMENT ASSOCIATION INVENTORY</h1>
+<img src="https://pbs.twimg.com/profile_images/519667011232595970/lB4cuK0K_400x400.jpeg" alt="SGA Logo">
+<p></p>
+    <table class = "button2">
+        <tr>
+          <td>
+              <form id = "form" method = 'get' action = "home">
+                <input type = "submit" name = "submit" value = "HOME"/>
+              </form>
+          </td>
+            <td>
+              <form id = "form" method = 'get' action = "inventory">
+              {% if session['admin'] == "yes" %}
+              <input type = "submit" name = "submit" value = "YOUR INVENTORY"/>
+                  {% endif %}
+                  {% if session['admin'] == "no" %}
+              <input type = "submit" name = "submit" value = "OUR INVENTORY"/>
+                  {% endif %}
+              </form>
+          </td>
+          <td>
+              <form id = "form" method = 'get' action = "requests">
+              <input type = "submit" name = "submit" value = "ITEM REQUESTS"/>
+              </form>
+          </td>
+      </tr>
+  </table>
+    <h2>HOME</h2>
+
+    <div id = "home">
+        <p>The Student Government Association (SGA) recognizes a number of various student organizations.
+            On top of providing funding for each club, SGA provides materials and supplies for clubs to use in their meetings, events, and promotions.
+        In the Group Activities Center, the room behind SGA, there are a number of art supplies like markers, posters, stencils and more.
+        The Information Desk, downstairs of the Dining Commons next to the Hill, also provides some storage for club supplies such as a Wii console that Gaming club uses.</p>
+
+    <p>If there are any questions regarding SGA Inventory, please contact SGA Executive Secretary Jerry Penaflorida at: <a href = "mailto:jpenaflorida@students.stonehill.edu?subject= SGA Inventory Request">jpenaflorida@students.stonehill.edu</a></p>
+    </div>
+
+
+</body>
+</html>
